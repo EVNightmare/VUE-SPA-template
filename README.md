@@ -26,6 +26,7 @@ $ node server
 ### 目录结构
 
 ```
+<pre>
 .
 ├── README.md           
 ├── dist                     // 项目build目录
@@ -43,6 +44,7 @@ $ node server
 ├── server.js                // 开发环境启动server
 ├── webpack.config.js        // Webpack 配置文件
 .
+</pre>
 ```
 
 发布代码
