@@ -9,6 +9,7 @@ npm-debug.log*
 ###############
 .DS_Store
 node_modules
+old
 dist
 build
 ##push server
