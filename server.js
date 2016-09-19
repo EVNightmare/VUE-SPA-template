@@ -2,7 +2,7 @@
 * @Author: vinceHuang
 * @Date:   2016-09-01 16:35:50
 * @Last Modified by:   vinceHuang
-* @Last Modified time: 2016-09-18 17:35:00
+* @Last Modified time: 2016-09-19 14:23:10
 */
 
 'use strict';
@@ -14,6 +14,15 @@ config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 // 这里配置：请求http://localhost:9090/api，
 // 相当于通过本地node服务代理请求到了http://cnodejs.org/api
+var rewriteUrl = function(replacePath) {
+    return function(req, opt) {  // gets called with request and proxy object
+        var queryIndex = req.url.indexOf('?');
+        var query = queryIndex >= 0 ? req.url.substr(queryIndex) : "";
+        req.url = req.path.replace(opt.path, replacePath) + query;
+        console.log("rewriting ", req.originalUrl, req.url);
+    };
+};
+
 var proxy = [
 {
     path: "/api/*",
