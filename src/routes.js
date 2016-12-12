@@ -2,11 +2,10 @@
 * @Author: vinceHuang
 * @Date:   2016-09-01 17:07:46
 * @Last Modified by:   vinceHuang
-* @Last Modified time: 2016-09-06 11:00:21
+* @Last Modified time: 2016-09-20 15:15:22
 */
 
 import { setCookieFrom,getCookie } from './utils/cookie.js'
-import FastClick from 'fastclick'
 
 export default function(router) {
   router.map({
@@ -14,6 +13,37 @@ export default function(router) {
       name: 'home',
       component: function (resolve) {
         require(['./views/Home/index.vue'], resolve)
+      }
+    },
+    // '/card/:cid': {
+    //   name: 'card-detail',
+    //   component: function (resolve) {
+    //     require(['./views/Card/detail.vue'], resolve)
+    //   }
+    // },
+    '/card': {
+      component: function (resolve) {
+        require(['./views/Card/index.vue'], resolve)
+      },
+      subRoutes: {
+        '/': {
+          name: 'card-index',
+          component: function (resolve) {
+            require(['./views/Card/list.vue'], resolve)
+          }
+        },
+        '/add': {
+          name: 'card-add',
+          component: function (resolve) {
+            require(['./views/Card/add.vue'], resolve)
+          }
+        },
+        '/:cid': {
+          name: 'card-detail',
+          component: function (resolve) {
+            require(['./views/Card/detail.vue'], resolve)
+          }
+        }
       }
     },
     '/manage': {
@@ -44,7 +74,6 @@ export default function(router) {
 
 
   router.beforeEach(function ({ to, next }) {
-  		FastClick.attach(document.body);
   		if (to.auth) {
 	        if (localStorage.userId) {
 	            next();

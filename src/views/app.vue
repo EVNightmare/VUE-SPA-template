@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper" class="wrapper container" :class="routeClass">
+  <div id="wrapper" class="wrapper" :class="routeClass">
     <router-view></router-view>
   </div>
   <!-- <Toaster></Toaster> -->
@@ -16,7 +16,6 @@ export default {
   	}
   },
   ready(){
-    console.log('app.vue')
   }
 }
 </script>

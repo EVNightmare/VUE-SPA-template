@@ -59,3 +59,58 @@ export const getArticle = (store, data, cb) => {
 }
 
 
+export const testLean = (store, data, cb) => {
+      
+  var TestObject = AV.Object.extend('TestObject');
+  var testObject = new TestObject();
+  testObject.save({
+    testabc: 'john'
+  }).then(function(res) {
+    console.log('resId:',res.id)
+    alert('LeanCloud works!');
+  }).catch(function(err) {
+    alert('error:' + err);
+  });
+
+}
+
+
+export const addCard = (store, data, cb) => {
+      
+  var card = AV.Object.extend('cards');
+  var cardOn = new card();
+  cardOn.save(data).then(function(res) {
+    console.log('resId:',res.id)
+    alert('add ok!');
+  }).catch(function(err) {
+    alert('error:' + err);
+  });
+
+}
+
+
+export const getCards = (store, data, cb) => {
+      
+  store.dispatch(types.REQUEST_CARD_LIST)
+  var cards = new AV.Query('cards');
+  cards.find().then(function (results) {
+    let res = results.map((v,i)=>{
+      let resi =  v.attributes
+      resi.id = v.id
+      return resi
+    })
+    // console.log('res',res)
+    store.dispatch(types.CARD_LIST,{
+            list: res
+          })
+    if(typeof cb== 'function'){
+      cb(res)
+    }
+  }, function (error) {
+    console.log('error:',error)
+  });
+
+
+}
+
+

@@ -2,7 +2,7 @@
 * @Author: vinceHuang
 * @Date:   2016-09-01 16:35:50
 * @Last Modified by:   vinceHuang
-* @Last Modified time: 2016-09-19 14:23:10
+* @Last Modified time: 2016-09-19 14:58:41
 */
 
 'use strict';
@@ -30,10 +30,14 @@ var proxy = [
     host: "cnodejs.org"
 },
 {
-    path: new RegExp('/backend(.*)'),
-    rewrite: rewriteUrl("$1"),
+    path: "/backend/*",
+    pathRewrite: {
+            '^/backend' : '/',     // remove path
+        },
     target: "http://s6.care001.cn:5083/cas-app",
-    host: "care001.cn",
+    headers:{
+        host: "care001.cn",
+    },
     changeOrigin: true
  }
 ]

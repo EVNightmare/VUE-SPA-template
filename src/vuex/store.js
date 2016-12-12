@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import showtoast from './modules/showtoast'
 import globalVal from './modules/global.val'
 import article from './modules/article'
+import cardStore from './modules/card.store'
 
 
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
   modules:{
     showtoast,
     globalVal,
-    article
+    article,
+    cardStore
   },
   strict:  debug
 })

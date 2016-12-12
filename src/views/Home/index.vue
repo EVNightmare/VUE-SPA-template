@@ -1,19 +1,27 @@
 <template>
-	<div class="index">
-		from Index
+	<div class="index container">
+		from 
 		Ywah 
 		<ul>
 				<li class="list01">123312</li>
 			</ul>	
+			<button class="btn btn-primary btn-lg" type="button" @click="testLean">点我测试</button>
 	</div>
 </template>
 <script>
-    require('../../assets/scss/index.css');
-	export default{
-	  ready(){
-	    console.log('index.vue')
-	  }
-	}
+import { testLean } from '../../vuex/actions'
+require('../../assets/scss/index.css');
+
+export default{
+	vuex:{
+	    actions:{
+	    	testLean 
+	    }
+	},
+  ready(){
+    console.log('index.vue')
+  }
+}
 </script>
 <style>
 	*{

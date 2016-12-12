@@ -24,7 +24,7 @@ require('../../assets/scss/article.css');
 	      list: ({article}) => article.list
 	    },
 	    actions:{
-	    	getArticle 
+	    	getArticle
 	    }
 	  },
 	  components: {
