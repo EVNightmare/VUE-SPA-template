@@ -2,7 +2,7 @@
 * @Author: vinceHuang
 * @Date:   2016-09-01 16:35:50
 * @Last Modified by:   vinceHuang
-* @Last Modified time: 2016-12-12 10:19:39
+* @Last Modified time: 2016-12-12 15:42:57
 */
 
 'use strict';
@@ -49,6 +49,4 @@ var app = new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     proxy:proxy
 });
-app.listen(8090,'localhost',function(err){
-    open('http://localhost:' + 8090)
-});
+app.listen(8090);
