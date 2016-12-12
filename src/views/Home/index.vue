@@ -1,11 +1,12 @@
 <template>
 	<div class="index container">
-		from 
-		Ywah 
+		from vinceHuang
 		<ul>
-				<li class="list01">123312</li>
+				<!-- <li class="list01"></li> -->
 			</ul>	
-			<button class="btn btn-primary btn-lg" type="button" @click="testLean">点我测试</button>
+			<a class="btn btn-primary btn-lg" href="/card">贺卡列表</a>
+			<a class="btn btn-success btn-lg" href="/card/add">添加贺卡</a>
+			<!-- <button class="btn btn-primary btn-lg" type="button" @click="testLean">点我测试</button> -->
 	</div>
 </template>
 <script>

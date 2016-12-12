@@ -2,7 +2,7 @@
 * @Author: vinceHuang
 * @Date:   2016-09-01 16:35:50
 * @Last Modified by:   vinceHuang
-* @Last Modified time: 2016-09-19 14:58:41
+* @Last Modified time: 2016-12-12 10:19:39
 */
 
 'use strict';
@@ -11,6 +11,7 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 config.entry.unshift('webpack-dev-server/client?http://localhost:8090', "webpack/hot/dev-server");
 config.plugins.push(new webpack.HotModuleReplacementPlugin());
+var open = require('open')
 
 // 这里配置：请求http://localhost:9090/api，
 // 相当于通过本地node服务代理请求到了http://cnodejs.org/api
@@ -48,4 +49,6 @@ var app = new WebpackDevServer(webpack(config), {
     historyApiFallback: true,
     proxy:proxy
 });
-app.listen(8090);
+app.listen(8090,'localhost',function(err){
+    open('http://localhost:' + 8090)
+});
